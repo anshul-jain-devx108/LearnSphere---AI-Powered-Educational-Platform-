@@ -339,7 +339,7 @@
 import { Task } from "@/types/task";
 
 // API base URL for the tasks
-const API_URL = "https://task-service-403893624463.us-central1.run.app/tasksnpm";
+const API_URL = "https://task-service-403893624463.us-central1.run.app/tasks";
 // Auth token endpoint
 const AUTH_TOKEN_URL = "https://my-sign-403893624463.us-central1.run.app/auth/token";
 
