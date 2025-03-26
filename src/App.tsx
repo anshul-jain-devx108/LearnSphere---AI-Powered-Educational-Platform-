@@ -121,7 +121,7 @@ const App = () => (
                 <ProtectedRoute>
                   <Settings />
                 </ProtectedRoute>
-              } 
+              } />
 
 
                <Route path="/classes" element={
