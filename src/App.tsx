@@ -126,7 +126,7 @@ const App = () => (
 
                <Route path="/classes" element={
                 <ProtectedRoute>
-                  <ClassesPage />
+                  < ClassesPage />
                 </ProtectedRoute>
               } />
               <Route path="/class/:id" element={
