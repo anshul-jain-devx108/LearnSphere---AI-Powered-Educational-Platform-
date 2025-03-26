@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
-// import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import Landing from "./pages/Landing";
 import Index from "./pages/Index";
 import Calendar from "./pages/Calendar";
@@ -18,10 +18,13 @@ import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ClassView from "./pages/ClassView";
 import ClassesPage from "./pages/ClassesPage";
+import { AuthProvider } from "@/context/AuthContext"; // Import AuthProvider
 
 const queryClient = new QueryClient();
 
 const App = () => (
+  <AuthProvider> {/* Wrap your app */}
+
   <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -54,6 +57,7 @@ const App = () => (
       </TooltipProvider>
     </QueryClientProvider>
   </ThemeProvider>
+  </AuthProvider> 
 );
 
 export default App;

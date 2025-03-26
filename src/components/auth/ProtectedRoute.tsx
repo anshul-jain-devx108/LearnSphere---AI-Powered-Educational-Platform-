@@ -1,19 +1,30 @@
-
+import { useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
-// This is a mock authentication check. In a real app, you would check your auth state
-const isAuthenticated = () => {
-  return localStorage.getItem("isAuthenticated") === "true";
-};
-
-interface ProtectedRouteProps {
-  children: React.ReactNode;
-}
-
-export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
-  if (!isAuthenticated()) {
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await axios.get("https://my-sign-403893624463.us-central1.run.app/auth/check", {
+          withCredentials: true, // ✅ Sends cookies with request
+        });
+        setIsAuthenticated(response.data.authenticated); // ✅ Fix: update state here
+      } catch (error) {
+        console.error("Auth check failed:", error);
+        setIsAuthenticated(false); // ✅ Explicitly set to false on error
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (isAuthenticated === null) return <p>Loading...</p>; // ✅ Show loader while checking
+
+  if (!isAuthenticated) {
     return <Navigate to="/auth/login" state={{ from: location }} replace />;
   }
 
