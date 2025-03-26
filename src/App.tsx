@@ -78,7 +78,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ClassView from "./pages/ClassView";
-
+import ClassesPage from "./pages/ClassesPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -120,6 +120,13 @@ const App = () => (
               <Route path="/settings" element={
                 <ProtectedRoute>
                   <Settings />
+                </ProtectedRoute>
+              } 
+
+
+               <Route path="/classes" element={
+                <ProtectedRoute>
+                  <ClassesPage />
                 </ProtectedRoute>
               } />
               <Route path="/class/:id" element={
