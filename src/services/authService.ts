@@ -79,7 +79,7 @@ export const checkAuthStatus = async (): Promise<AuthStatus> => {
 export const loginWithGoogle = (): void => {
   try {
     // Use hardcoded redirect URL for production deployment
-    const redirectUrl = `${API_BASE_URL}/auth/google?redirect=${encodeURIComponent('https://learnsphere-32.lovable.app/dashboard')}`;
+    const redirectUrl = `${API_BASE_URL}/auth/google?redirect=${encodeURIComponent('https://learn-sphere-ai-powered-educational-platform.vercel.app/dashboard')}`;
     
     // For local development, you might want to use window.location.origin
     // const redirectUrl = `${API_BASE_URL}/auth/google?redirect=${encodeURIComponent(window.location.origin + '/dashboard')}`;
