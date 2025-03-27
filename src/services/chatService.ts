@@ -227,7 +227,7 @@ export const sendChatMessage = async (
       token = await getAccessToken();
     }
     
-    const response = await fetch(`${API_BASE_URL}/send`, {
+    const response = await fetch(`${API_BASE_URL}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -289,7 +289,7 @@ export const getChatHistory = async (
     }
     
     const response = await fetch(
-      `${API_BASE_URL}/history?chatId=${chatId}&classId=${classId}&limit=${limit}`, 
+      `${API_BASE_URL}/api/chat/history?chatId=${chatId}&classId=${classId}&limit=${limit}`, 
       {
         method: 'GET',
         headers: {
