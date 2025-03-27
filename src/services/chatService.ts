@@ -165,8 +165,11 @@
 // };
 
 // Chat service to integrate with the external chat API
+
+// Chat service to integrate with the external chat API
 import { getAccessToken } from './authService';
 
+// Update the API base URL if necessary
 const API_BASE_URL = 'https://chatbot-service-403893624463.us-central1.run.app';
 
 export interface ChatMessage {
@@ -184,6 +187,30 @@ export interface ChatResponse {
 }
 
 /**
+ * Improved token retrieval with better error handling
+ */
+const getToken = async (): Promise<string | null> => {
+  try {
+    const tokenUrl = "https://my-sign-403893624463.us-central1.run.app/auth/token";
+    const response = await fetch(tokenUrl, {
+      method: "GET",
+      credentials: "include",  // Ensure cookies/session tokens are sent
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to get authentication token: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.access_token || data.token || null;
+  } catch (error) {
+    console.error("Error fetching token:", error);
+    return null;
+  }
+};
+
+/**
  * Send a message to the chat API
  */
 export const sendChatMessage = async (
@@ -192,8 +219,13 @@ export const sendChatMessage = async (
   chatId?: string
 ): Promise<ChatResponse> => {
   try {
-    // Get the authentication token
-    const token = await getAccessToken();
+    // Try with the dedicated token function first
+    let token = await getToken();
+    
+    // Fall back to existing method if the first attempt fails
+    if (!token) {
+      token = await getAccessToken();
+    }
     
     const response = await fetch(`${API_BASE_URL}/send`, {
       method: 'POST',
@@ -209,12 +241,28 @@ export const sendChatMessage = async (
       })
     });
 
+    // Handle non-JSON responses (like HTML error pages)
+    const contentType = response.headers.get('content-type');
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Failed to send message');
+      if (contentType && contentType.includes('application/json')) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      } else {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
     }
 
-    return await response.json();
+    // Safely parse JSON
+    const contentText = await response.text();
+    let data;
+    try {
+      data = JSON.parse(contentText);
+    } catch (e) {
+      console.error('Failed to parse response as JSON:', contentText.substring(0, 100) + '...');
+      throw new Error('Invalid response format from server');
+    }
+
+    return data;
   } catch (error) {
     console.error('Error sending chat message:', error);
     
@@ -232,8 +280,13 @@ export const getChatHistory = async (
   limit = 10
 ): Promise<ChatMessage[]> => {
   try {
-    // Get the authentication token
-    const token = await getAccessToken();
+    // Try with the dedicated token function first
+    let token = await getToken();
+    
+    // Fall back to existing method if the first attempt fails
+    if (!token) {
+      token = await getAccessToken();
+    }
     
     const response = await fetch(
       `${API_BASE_URL}/history?chatId=${chatId}&classId=${classId}&limit=${limit}`, 
@@ -246,12 +299,27 @@ export const getChatHistory = async (
       }
     );
 
+    // Handle non-JSON responses
+    const contentType = response.headers.get('content-type');
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Failed to fetch chat history');
+      if (contentType && contentType.includes('application/json')) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to fetch chat history');
+      } else {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
     }
 
-    const data = await response.json();
+    // Safely parse JSON
+    const contentText = await response.text();
+    let data;
+    try {
+      data = JSON.parse(contentText);
+    } catch (e) {
+      console.error('Failed to parse response as JSON:', contentText.substring(0, 100) + '...');
+      throw new Error('Invalid response format from server');
+    }
+
     return data.messages || [];
   } catch (error) {
     console.error('Error fetching chat history:', error);
@@ -297,7 +365,13 @@ export const setupChatStream = (
   try {
     // Get the authentication token - using a self-executing async function
     (async () => {
-      const token = await getAccessToken();
+      // Try with the dedicated token function first
+      let token = await getToken();
+      
+      // Fall back to existing method if the first attempt fails
+      if (!token) {
+        token = await getAccessToken();
+      }
       
       // If we couldn't get a token, don't try to set up the stream
       if (!token) {
