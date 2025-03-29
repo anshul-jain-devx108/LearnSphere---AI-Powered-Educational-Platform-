@@ -398,55 +398,55 @@ const getAuthToken = async (): Promise<string> => {
 // Classroom service for handling API calls
 export const classroomService = {
   // Get all classrooms
-  getClassrooms: async (): Promise<ClassroomType[]> => {
-    try {
-      console.log("Fetching classrooms from API");
-      const token = await getAuthToken();
+  // getClassrooms: async (): Promise<ClassroomType[]> => {
+  //   try {
+  //     console.log("Fetching classrooms from API");
+  //     const token = await getAuthToken();
       
-      const response = await fetch(`${API_URL}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
-        },
-      });
+  //     const response = await fetch(`${API_URL}`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Authorization": `Bearer ${token}`
+  //       },
+  //     });
       
-      const data = await handleResponse(response);
+  //     const data = await handleResponse(response);
       
-      return data.classrooms || [];
-    } catch (error) {
-      console.error("Error fetching classrooms:", error);
+  //     return data.classrooms || [];
+  //   } catch (error) {
+  //     console.error("Error fetching classrooms:", error);
       
-      // Fallback to mock data in case API is not ready
-      console.log("⚠️ Using fallback mock data as API request failed");
-      return [
-        {
-          id: "class-1",
-          title: "Introduction to Computer Science",
-          subject: "Computer Science",
-          room: "Room 101",
-          description: "Fundamentals of computer science and programming",
-          owner_email: "teacher@example.com"
-        },
-        {
-          id: "class-2",
-          title: "World History",
-          subject: "History",
-          room: "Room 203",
-          description: "A comprehensive study of world history",
-          owner_email: "teacher@example.com"
-        },
-        {
-          id: "class-3",
-          title: "Advanced Mathematics",
-          subject: "Mathematics",
-          room: "Room 305",
-          description: "Advanced topics in mathematics",
-          owner_email: "teacher@example.com"
-        }
-      ];
-    }
-  },
+  //     // Fallback to mock data in case API is not ready
+  //     console.log("⚠️ Using fallback mock data as API request failed");
+  //     return [
+  //       {
+  //         id: "class-1",
+  //         title: "Introduction to Computer Science",
+  //         subject: "Computer Science",
+  //         room: "Room 101",
+  //         description: "Fundamentals of computer science and programming",
+  //         owner_email: "teacher@example.com"
+  //       },
+  //       {
+  //         id: "class-2",
+  //         title: "World History",
+  //         subject: "History",
+  //         room: "Room 203",
+  //         description: "A comprehensive study of world history",
+  //         owner_email: "teacher@example.com"
+  //       },
+  //       {
+  //         id: "class-3",
+  //         title: "Advanced Mathematics",
+  //         subject: "Mathematics",
+  //         room: "Room 305",
+  //         description: "Advanced topics in mathematics",
+  //         owner_email: "teacher@example.com"
+  //       }
+  //     ];
+  //   }
+  // },
 
   // Get a classroom by ID
   getClassroomById: async (id: string): Promise<ClassroomType> => {
