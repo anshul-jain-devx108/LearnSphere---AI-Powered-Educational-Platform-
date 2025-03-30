@@ -188,7 +188,7 @@ function useToast() {
   }
 }
 
-// export { useToast, toast }
+export { useToast, toast }
 
 // import * as React from "react"
 
