@@ -138,22 +138,39 @@ export const useAssignment = (classroomId: string, assignmentId?: string) => {
 
   // Generate assignment with AI
   const generateAssignmentMutation = useMutation({
-    mutationFn: (promptData: AssignmentFormValues) => 
-      assignmentService.generateAssignmentWithAI(classroomId, promptData),
-    onSuccess: (data) => {
+    // mutationFn: (promptData: AssignmentFormValues) => 
+    //   assignmentService.generateAssignmentWithAI(classroomId, promptData),
+    // onSuccess: (data) => {
+    //   toast({
+    //     title: "Assignment generated",
+    //     description: "The assignment has been generated with AI",
+    //   });
+    //   return data;
+    // },
+    // onError: (error: Error) => {
+    //   toast({
+    //     title: "Error generating assignment",
+    //     description: error.message,
+    //     variant: "destructive",
+    //   });
+    //   return { content: "" };
+    // }
+
+     mutationFn: (data: AssignmentFormValues & { content: string }) => 
+      assignmentService.createAssignment(classroomId, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assignments', classroomId] });
       toast({
-        title: "Assignment generated",
-        description: "The assignment has been generated with AI",
+        title: "Assignment created",
+        description: "The assignment has been successfully created",
       });
-      return data;
     },
     onError: (error: Error) => {
       toast({
-        title: "Error generating assignment",
+        title: "Error creating assignment",
         description: error.message,
         variant: "destructive",
       });
-      return { content: "" };
     }
   });
 
