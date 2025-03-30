@@ -409,29 +409,52 @@ export const assignmentGenerationService = {
   },
 
   async generateAssignmentWithAI(classroomId: string, promptData: AssignmentFormValues): Promise<{ content: string }> {
-    try {
+  //   try {
+  //     const token = await getAuthToken();
+  //     if (!token) throw new Error("No authentication token available");
+
+  //     const response = await fetch(`${API_BASE_URL}/classrooms/${classroomId}/assignments/generate`, {
+  //       method: 'POST',
+  //       headers: {
+  //         "Authorization": `Bearer ${token}`,
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(promptData),
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error(`Failed to generate assignment with AI: ${response.status}`);
+  //     }
+
+  //     return await response.json();
+  //   } catch (error) {
+  //     console.error("Error generating assignment with AI:", error);
+  //     throw error;
+  //   }
+  // }
+
+         try {
       const token = await getAuthToken();
       if (!token) throw new Error("No authentication token available");
 
-      const response = await fetch(`${API_BASE_URL}/classrooms/${classroomId}/assignments/generate`, {
+      const response = await fetch(`${API_BASE_URL}/api/assignments`, {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(promptData),
+        body: JSON.stringify(assignmentData),
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to generate assignment with AI: ${response.status}`);
+        throw new Error(`Failed to create assignment: ${response.status}`);
       }
 
       return await response.json();
     } catch (error) {
-      console.error("Error generating assignment with AI:", error);
+      console.error("Error creating assignment:", error);
       throw error;
     }
-  }
 };
 
 export default assignmentGenerationService;
