@@ -448,7 +448,7 @@ export const classroomService = {
     }
   },
 
-  Get a classroom by ID
+  // Get a classroom by ID
   getClassroomById: async (id: string): Promise<ClassroomType> => {
     try {
       console.log(`Fetching classroom ${id} from API`);
