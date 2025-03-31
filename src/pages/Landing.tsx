@@ -171,7 +171,7 @@ export const Landing = () => {
                 </Button> */}
                 <Button size="lg" variant="outline" asChild>
   <a href="https://learn-sphere-student.vercel.app/" target="_blank" rel="noopener noreferrer">
-    Learn More
+    Are you a student?🧑‍🎓
   </a>
 </Button>
 
