@@ -182,7 +182,7 @@ export const Landing = () => {
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
               <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                  src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
                   alt="Teachers using digital tools in a classroom"
                   className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
                 />
