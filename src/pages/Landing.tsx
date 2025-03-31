@@ -49,19 +49,19 @@ export const Landing = () => {
       name: "Anshul Jaim",
       role: "Co-Founder",
       image: "https://avatars.githubusercontent.com/u/181500731?v=4",
-      quote: "LearnSphere has transformed how I manage my classroom. The AI assistant helps me grade papers in half the time!"
+      quote: "LearnSphere has transformed how teacher manages his classrooms. The AI assistant helps them grade papers in half the time!"
     },
     {
-      name: "Michael Rodriguez",
-      role: "Science Department Head",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-      quote: "The collaborative tools make science projects so much easier to coordinate. Our student engagement has increased by 40%."
+      name: "Bhanu Shakya",
+      role: "Co-Founder",
+      image: "https://avatars.githubusercontent.com/u/166703471?v=4",
+      quote: "The collaborative tool make classwork so much easier to coordinate as per our survey"
     },
     {
-      name: "Emily Chen",
-      role: "Elementary School Teacher",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-      quote: "My young students love the interactive features, and parents appreciate the clear communication channels."
+      name: "Poornima University",
+      role: "Ranked 47th amongst Top Universities in India",
+      image: "https://poornima.edu.in/assets/images/PULogo.png",
+      quote: "Very Helpful tool, Made academic work easier."
     }
   ];
 
