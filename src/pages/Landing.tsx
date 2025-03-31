@@ -46,9 +46,9 @@ export const Landing = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Math Teacher",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
+      name: "Anshul Jaim",
+      role: "Co-Founder",
+      image: "https://avatars.githubusercontent.com/u/181500731?v=4",
       quote: "LearnSphere has transformed how I manage my classroom. The AI assistant helps me grade papers in half the time!"
     },
     {
