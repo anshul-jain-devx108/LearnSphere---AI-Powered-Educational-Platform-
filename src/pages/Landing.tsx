@@ -166,9 +166,15 @@ export const Landing = () => {
                     <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline">
+{/*                 <Button size="lg" variant="outline">
                   Learn More
-                </Button>
+                </Button> */}
+                <Button size="lg" variant="outline" asChild>
+  <a href="https://learn-sphere-student.vercel.app/" target="_blank" rel="noopener noreferrer">
+    Learn More
+  </a>
+</Button>
+
               </div>
             </div>
             <div className="animate-fade-in relative hidden lg:block">
