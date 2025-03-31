@@ -1,26 +1,3 @@
-
-// import assignmentGenerationService, { assignmentGenerationService as generationService } from "./assignmentGenerationService";
-// import assignmentDashboardService, { assignmentDashboardService as dashboardService } from "./assignmentDashboardService";
-
-// // Re-export both services for backwards compatibility
-// export const assignmentService = {
-//   // Assignment generation and management
-//   getAssignments: generationService.getAssignments,
-//   getAssignment: generationService.getAssignment,
-//   createAssignment: generationService.createAssignment,
-//   updateAssignment: generationService.updateAssignment,
-//   deleteAssignment: generationService.deleteAssignment,
-//   generateAssignmentWithAI: generationService.generateAssignmentWithAI,
-  
-//   // Dashboard and submissions
-//   getSubmissions: dashboardService.getSubmissions,
-//   gradeWithAI: dashboardService.gradeWithAI,
-//   updateFinalGrade: dashboardService.updateFinalGrade,
-// };
-
-// export default assignmentService;
-
-
 // import { Assignment, AssignmentFormValues, AssignmentSubmission } from "@/types/assignment";
 
 // // API endpoints
@@ -60,6 +37,7 @@
 //     const token = await getAuthToken();
 //     if (!token) throw new Error("No authentication token available");
 
+//     console.log(`Fetching assignments for classroom: ${classroomId}`);
 //     const response = await fetch(`${API_BASE_URL}/assignments/classroom/${classroomId}`, {
 //       headers: {
 //         "Authorization": `Bearer ${token}`,
@@ -71,7 +49,9 @@
 //       throw new Error(`Failed to fetch assignments: ${response.status}`);
 //     }
 
-//     return await response.json();
+//     const data = await response.json();
+//     console.log("Assignments fetched:", data);
+//     return data;
 //   } catch (error) {
 //     console.error("Error fetching assignments:", error);
 //     return [];
@@ -114,9 +94,11 @@
 
 //     const payload = {
 //       ...assignmentData,
-//       classroomId
+//       classroomId,
+//       dueDate: assignmentData.deadline ? assignmentData.deadline.toISOString() : undefined
 //     };
 
+//     console.log("Creating assignment with payload:", payload);
 //     const response = await fetch(`${API_BASE_URL}/assignments`, {
 //       method: 'POST',
 //       headers: {
@@ -130,7 +112,9 @@
 //       throw new Error(`Failed to create assignment: ${response.status}`);
 //     }
 
-//     return await response.json();
+//     const data = await response.json();
+//     console.log("Assignment created:", data);
+//     return data;
 //   } catch (error) {
 //     console.error("Error creating assignment:", error);
 //     throw error;
@@ -345,10 +329,20 @@ export const createAssignment = async (classroomId: string, assignmentData: Assi
     const token = await getAuthToken();
     if (!token) throw new Error("No authentication token available");
 
+    // Map frontend fields to what the backend expects
     const payload = {
-      ...assignmentData,
-      classroomId,
-      dueDate: assignmentData.deadline ? assignmentData.deadline.toISOString() : undefined
+      title: assignmentData.title,
+      subject: assignmentData.subject,
+      classroomId, // This field matches
+      // Format deadline to ISO string if it exists
+      deadline: assignmentData.deadline ? assignmentData.deadline.toISOString() : undefined,
+      totalMarksWeightage: assignmentData.maxPoints, // Map maxPoints to totalMarksWeightage
+      // Add required fields that the backend expects
+      evaluationCriteria: assignmentData.standardGrading, // Map standardGrading to evaluationCriteria
+      numberOfTasks: 1, // Default value
+      language: "English", // Default language
+      additionalInstructions: assignmentData.additionalInstructions || "None",
+      content: assignmentData.content // Pass the content
     };
 
     console.log("Creating assignment with payload:", payload);
@@ -382,13 +376,32 @@ export const updateAssignment = async (classroomId: string, assignmentId: string
     const token = await getAuthToken();
     if (!token) throw new Error("No authentication token available");
 
+    // Format and map fields similar to create assignment
+    const payload = { ...assignmentData };
+    
+    // Convert deadline to ISO string if it's a Date object
+    if (payload.deadline instanceof Date) {
+      payload.deadline = payload.deadline.toISOString();
+    }
+    
+    // Map fields to match backend expectations if they exist in the update data
+    if (payload.maxPoints !== undefined) {
+      payload.totalMarksWeightage = payload.maxPoints;
+      delete payload.maxPoints;
+    }
+    
+    if (payload.standardGrading !== undefined) {
+      payload.evaluationCriteria = payload.standardGrading;
+      delete payload.standardGrading;
+    }
+
     const response = await fetch(`${API_BASE_URL}/assignments/${assignmentId}`, {
       method: 'PUT',
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(assignmentData),
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
