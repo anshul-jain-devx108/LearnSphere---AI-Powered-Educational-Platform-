@@ -340,7 +340,7 @@ export const Landing = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Educators Are Saying</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Thousands of teachers are already using LearnSphere to transform their classrooms
+              Hunderds of teachers are already using LearnSphere to transform their classrooms
             </p>
           </div>
           
@@ -383,7 +383,7 @@ export const Landing = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24">
+{/*       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Simple, Transparent Pricing</h2>
@@ -437,7 +437,7 @@ export const Landing = () => {
           </div>
         </div>
       </section>
-
+ */}
       {/* Trust Section */}
       <section className="py-20 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -457,11 +457,11 @@ export const Landing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-primary/5">
+{/*       <section className="py-24 lg:py-32 bg-primary/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Transform Your Classroom?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of educators who are saving time, increasing engagement, and improving outcomes with LearnSphere.
+            Join hundreds of educators who are saving time, increasing engagement, and improving outcomes with LearnSphere.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/auth/register">
@@ -476,7 +476,7 @@ export const Landing = () => {
           </div>
           <p className="mt-4 text-sm text-muted-foreground">No credit card required. Cancel anytime.</p>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="py-12 bg-muted/30 border-t">
