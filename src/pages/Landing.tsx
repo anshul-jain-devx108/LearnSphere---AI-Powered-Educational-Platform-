@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Moon, Sun, ArrowRight, BookOpen, GraduationCap, 
   Users, Award, CheckCircle, Star, Sparkles, 
-  BarChart3, Calculator, Clock, ShieldCheck
+  BarChart3, Calculator, Clock, ShieldCheck,Globe
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
