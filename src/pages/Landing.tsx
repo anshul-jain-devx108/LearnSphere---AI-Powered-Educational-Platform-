@@ -26,23 +26,42 @@ export const Landing = () => {
     setMounted(true);
   }, []);
 
+  // const features = [
+  //   {
+  //     icon: GraduationCap,
+  //     title: "Smart Learning",
+  //     description: "Personalized learning paths adapted to each student's needs"
+  //   },
+  //   {
+  //     icon: Users,
+  //     title: "Collaborative Tools", 
+  //     description: "Work together with classmates and teachers seamlessly"
+  //   },
+  //   {
+  //     icon: Award,
+  //     title: "Track Progress",
+  //     description: "Monitor academic growth with detailed analytics"
+  //   }
+  // ];
   const features = [
-    {
-      icon: GraduationCap,
-      title: "Smart Learning",
-      description: "Personalized learning paths adapted to each student's needs"
-    },
-    {
-      icon: Users,
-      title: "Collaborative Tools", 
-      description: "Work together with classmates and teachers seamlessly"
-    },
-    {
-      icon: Award,
-      title: "Track Progress",
-      description: "Monitor academic growth with detailed analytics"
-    }
-  ];
+  
+  {
+    icon: Users,
+    title: "Collaborative Tools", 
+    description: "Facilitate seamless collaboration between students, teachers, and parents, fostering a connected and supportive learning community."
+  },
+  {
+    icon: Award,
+    title: "Track Progress",
+    description: "Empower teachers and students with analytics to monitor academic growth, identify learning gaps, and enable targeted interventions."
+  },
+  {
+    icon: Globe,
+    title: "Regional Language Support",
+    description: "Deliver teaching materials in multiple languages to embrace India's diverse linguistic and cultural contexts."
+  }
+];
+
 
   const testimonials = [
     {
@@ -65,11 +84,17 @@ export const Landing = () => {
     }
   ];
 
+  // const statistics = [
+  //   { value: "87%", label: "Increase in student engagement", icon: BarChart3 },
+  //   { value: "40%", label: "Personalised feedback for teacher and student", icon: Clock },
+  //   { value: "10+", label: "Regional support", icon: Star }
+  // ];
   const statistics = [
-    { value: "87%", label: "Increase in student engagement", icon: BarChart3 },
-    { value: "40%", label: "Less time spent on administrative tasks", icon: Clock },
-    { value: "92%", label: "Teacher satisfaction rate", icon: Star }
-  ];
+  { value: "87%", label: "Boost in student engagement, fostering active learning", icon: BarChart3 },
+  { value: "40%", label: "Enhanced personalized feedback, empowering teachers and students alike", icon: Clock },
+  { value: "10+", label: "Extensive regional language support for inclusive education", icon: Star }
+];
+
 
   const pricingPlans = [
     {
@@ -155,7 +180,7 @@ export const Landing = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div className="space-y-8 animate-fade-in">
         <h1 className="text-4xl lg:text-6xl font-bold">
-          Transform Your Teaching Experience
+          Transform Your Classroom Experience
         </h1>
         <p className="text-lg text-muted-foreground">
           Streamline your classroom management, enhance student engagement, and save valuable time with our comprehensive education platform.
