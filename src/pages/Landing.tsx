@@ -181,7 +181,7 @@ export const Landing = () => {
           <img 
             src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
             alt="Teachers using digital tools in a classroom"
-            className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
+            className="w-full h-full object-cover rounded-xl opacity-100"
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl"></div>
         </div>
