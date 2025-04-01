@@ -162,7 +162,7 @@ export const Landing = () => {
               <div className="flex gap-4">
                 <Link to="/auth/register">
                   <Button size="lg" className="gap-2">
-                    Start Free Trial
+                    Login as Teacher
                     <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
