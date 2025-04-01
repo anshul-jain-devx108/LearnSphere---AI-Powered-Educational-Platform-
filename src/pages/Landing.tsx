@@ -148,7 +148,7 @@ export const Landing = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+{/*       {/* Hero Section */}
       <section className="pt-24 lg:pt-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -178,29 +178,64 @@ export const Landing = () => {
               </div>
             </div>
             <div className="animate-fade-in relative hidden lg:block">
-{/*               <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div> */}
-{/*               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div> */}
-              // <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
-              //   <img 
-              //     src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
-              //     alt="Teachers using digital tools in a classroom"
-              //     className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
-              //   />
-              //   <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl"></div>
-              // </div>
-  <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
-  <img 
-    src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
-    alt="Teachers using digital tools in a classroom"
-    className="w-full h-full object-cover rounded-xl"
-  />
-  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-xl"></div> 
-</div>
+              <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+              <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
+                <img 
+                  src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
+                  alt="Teachers using digital tools in a classroom"
+                  className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl"></div>
+              </div>
+{
 
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+              {/* Hero Section */}
+<section className="pt-24 lg:pt-32 relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="space-y-8 animate-fade-in">
+        <h1 className="text-4xl lg:text-6xl font-bold">
+          Transform Your Teaching Experience
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          Streamline your classroom management, enhance student engagement, and save valuable time with our comprehensive education platform.
+        </p>
+        <div className="flex gap-4">
+          <Link to="/auth/register">
+            <Button size="lg" className="gap-2">
+              Login as Teacher
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </Link>
+          <Button size="lg" variant="outline" asChild>
+            <a href="https://learn-sphere-student.vercel.app/" target="_blank" rel="noopener noreferrer">
+              Are you a student? 🧑‍🎓
+            </a>
+          </Button>
+        </div>
+      </div>
+      <div className="animate-fade-in relative hidden lg:block">
+        <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+        <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
+          <img 
+            src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
+            alt="Teachers using digital tools in a classroom"
+            className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl"></div>
+        </div>
+      </div> {/* ✅ Removed unnecessary "{" here */}
+    </div>
+  </div>
+</section>
+
 
       {/* Statistics Section */}
       <section className="py-20">
