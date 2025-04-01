@@ -180,14 +180,23 @@ export const Landing = () => {
             <div className="animate-fade-in relative hidden lg:block">
 {/*               <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div> */}
 {/*               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div> */}
-              <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
-                <img 
-                  src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
-                  alt="Teachers using digital tools in a classroom"
-                  className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl"></div>
-              </div>
+              // <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
+              //   <img 
+              //     src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
+              //     alt="Teachers using digital tools in a classroom"
+              //     className="w-full h-full object-cover rounded-xl mix-blend-overlay opacity-90"
+              //   />
+              //   <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl"></div>
+              // </div>
+  <div className="relative bg-gradient-to-br from-background to-background/80 shadow-xl border rounded-xl overflow-hidden">
+  <img 
+    src="https://the-decoder.com/wp-content/uploads/2022/10/school_class_pupil_robot_DAKK_E_2.png" 
+    alt="Teachers using digital tools in a classroom"
+    className="w-full h-full object-cover rounded-xl"
+  />
+  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-xl"></div> 
+</div>
+
             </div>
           </div>
         </div>
