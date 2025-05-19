@@ -2,7 +2,7 @@
 import { ClassroomType } from "@/types/classroom";
 
 // API base URL for classrooms
-const API_URL = "https://classroomservice-403893624463.us-central1.run.app/api/classrooms";
+const API_URL = "https://classroom-service-1039810289993.europe-west1.run.app/api/classrooms";
 // Auth token endpoint
 const AUTH_TOKEN_URL = "https://my-sign-403893624463.us-central1.run.app/auth/token";
 
