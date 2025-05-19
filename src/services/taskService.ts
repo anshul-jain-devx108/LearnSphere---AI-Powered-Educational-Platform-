@@ -341,7 +341,7 @@ import { Task } from "@/types/task";
 // API base URL for the tasks
 const API_URL = "https://task-service-403893624463.us-central1.run.app/tasks";
 // Auth token endpoint
-const AUTH_TOKEN_URL = "https://my-sign-403893624463.us-central1.run.app/auth/token";
+const AUTH_TOKEN_URL = "https://securesign-1039810289993.europe-west1.run.app/auth/token";
 
 // Helper function to handle fetch responses
 const handleResponse = async (response: Response) => {
