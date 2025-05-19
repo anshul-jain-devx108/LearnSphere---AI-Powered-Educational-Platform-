@@ -9,7 +9,7 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get("https://my-sign-403893624463.us-central1.run.app/auth/check", {
+        const response = await axios.get("https://securesign-1039810289993.europe-west1.run.app/auth/check", {
           withCredentials: true, // ✅ Sends cookies with request
         });
         setIsAuthenticated(response.data.authenticated); // ✅ Fix: update state here
