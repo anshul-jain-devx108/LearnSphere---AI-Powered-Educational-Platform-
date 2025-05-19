@@ -191,7 +191,7 @@ export interface ChatResponse {
  */
 const getToken = async (): Promise<string | null> => {
   try {
-    const tokenUrl = "https://my-sign-403893624463.us-central1.run.app/auth/token";
+    const tokenUrl = "https://securesign-1039810289993.europe-west1.run.app/auth/token";
     const response = await fetch(tokenUrl, {
       method: "GET",
       credentials: "include",  // Ensure cookies/session tokens are sent
