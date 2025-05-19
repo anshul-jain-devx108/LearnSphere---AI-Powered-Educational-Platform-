@@ -145,7 +145,7 @@
 
 
 
-const API_BASE_URL = 'https://my-sign-403893624463.us-central1.run.app';
+const API_BASE_URL = 'https://securesign-1039810289993.europe-west1.run.app';
 
 export interface AuthStatus {
   isAuthenticated: boolean;
