@@ -504,7 +504,7 @@
 import { Assignment, AssignmentFormValues, AssignmentSubmission } from "@/types/assignment";
 
 // API endpoints
-const API_BASE_URL = "https://assignment-generator-service-1039810289993.europe-west1.run.app/api"; //https://assignment-generator-403893624463.us-central1.run.app/api";
+const API_BASE_URL = "https://assignment-service-1039810289993.europe-west1.run.app/api"; //https://assignment-generator-403893624463.us-central1.run.app/api";
 const AUTH_TOKEN_URL = "https://securesign-1039810289993.europe-west1.run.app/auth/token";
 
 /**
